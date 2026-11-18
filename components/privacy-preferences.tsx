@@ -15,7 +15,7 @@ type PreferencesContextValue = {
 }
 
 const defaultPreferences: PrivacyPreferences = {
-  preferOnDevice: true,
+  preferOnDevice: false,
   allowCloudFallback: true,
   maxOnDeviceInputLength: 1200,
 }
