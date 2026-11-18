@@ -1,5 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { PrivacyPreferencesProvider } from '@/components/privacy-preferences'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -46,7 +47,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="antialiased">
-        {children}
+        <PrivacyPreferencesProvider>{children}</PrivacyPreferencesProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
