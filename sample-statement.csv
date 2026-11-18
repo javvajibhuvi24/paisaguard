@@ -1,0 +1,11 @@
+Date,Description,Type,Amount (INR),Balance (INR)
+01-11-2026,UPI/Swiggy/ORDER123,Debit,850.00,24500.00
+02-11-2026,UPI/BigBasket/GROCERY,Debit,1200.00,23300.00
+03-11-2026,UPI/Metro/Travel,Debit,150.00,23150.00
+05-11-2026,UPI/Netflix/Subscription,Debit,499.00,22651.00
+07-11-2026,UPI/Amazon/Shopping,Debit,2500.00,20151.00
+09-11-2026,UPI/Restaurant/Food,Debit,350.00,19801.00
+12-11-2026,UPI/Netflix/Subscription,Debit,499.00,19302.00
+15-11-2026,UPI/Salary/Payment,Credit,2000.00,21302.00
+16-11-2026,UPI/Swiggy/ORDER456,Debit,750.00,20552.00
+18-11-2026,UPI/Netflix/Subscription,Debit,499.00,20053.00
