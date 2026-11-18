@@ -1,66 +1,112 @@
-# PaisaGuard
+# 🛡️ PaisaGuard – Your Private AI Financial Assistant
 
-PaisaGuard is a privacy-first AI financial assistant prototype built with Next.js App Router, TypeScript, and Tailwind CSS. It helps people explore spending summaries, recurring subscriptions, and transaction explanations without connecting a bank account.
+**Financial clarity, without the trade-off.**
 
-> **Prototype note:** The analysis currently uses deterministic sample responses. Firebase AI Logic is not connected yet. The privacy settings are interface controls and are not persisted or enforced by the demo analysis function.
+PaisaGuard is a privacy-first AI-powered financial assistant designed to help users understand their spending, identify recurring subscriptions, analyze transactions, and gain meaningful financial insights without sharing unnecessary personal information.
 
-## Features
+🌐 **Live Demo:** https://paisaguard-beta.vercel.app/
 
-- **Landing page** with product overview, privacy benefits, and workflow steps.
-- **Transaction dashboard** with paste-in text or `.txt` / `.csv` upload, analysis tabs, loading/empty/error states, and a collapsible privacy log.
-- **PII redaction utility** for phone numbers, account-like digit sequences, and UPI IDs, implemented in `lib/redact.ts`.
-- **AI integration stub** in `lib/ai.ts` returning typed sample results and a source label.
-- **Privacy settings UI** for on-device preference, cloud fallback, and maximum input length.
-- Responsive layouts and mobile-friendly navigation.
+---
 
-## Routes
+## ✨ Features
 
-- `/` — landing page
-- `/app` — financial analysis dashboard
-- `/settings` — privacy preferences
+- **Privacy First:** Designed to keep financial data on the user's device whenever possible.
+- **Transaction Analysis:** Analyze bank SMS messages and financial statements.
+- **Smart Spending Insights:** Understand spending patterns and transaction history.
+- **Subscription Detection:** Identify recurring payments and subscriptions.
+- **AI Financial Assistant:** Get easy-to-understand answers about your financial activity.
+- **PII Auto-Redaction:** Detect and redact sensitive information such as phone numbers, account details, and UPI IDs before cloud requests.
+- **No Bank Connection Required:** Users can paste transaction messages or upload statements directly.
 
-## Getting started
+## 🔐 Privacy & Security
 
-Install dependencies and start the development server:
+PaisaGuard follows a privacy-first approach:
+
+1. On-device analysis whenever possible.
+2. Sensitive information is detected and redacted before cloud AI requests.
+3. Cloud AI is used as a fallback when additional processing is needed.
+4. Users remain in control of the financial information they share.
+
+**Your financial data belongs to you.**
+
+## 🚀 How It Works
+
+1. **Share a Statement:** Paste a bank SMS or upload a transaction statement.
+2. **Protect Your Details:** Sensitive information is detected and redacted.
+3. **Analyze Transactions:** Process financial information and identify spending patterns.
+4. **Get Insights:** Understand expenses, recurring charges, and financial activity through simple explanations.
+
+## 🛠️ Technology
+
+The project uses Firebase for application infrastructure and Vercel for deployment.
+
+Additional technologies and AI services are part of the application implementation.
+
+## ⚙️ Environment Variables
+
+Create a `.env.local` file in the project root and configure:
+
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_firebase_project_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_firebase_app_id
+NEXT_PUBLIC_FIREBASE_APPCHECK_SITE_KEY=your_recaptcha_site_key
+```
+
+**Important:** Never commit `.env.local`, Firebase service account credentials, or other private secrets to GitHub.
+
+## 💻 Getting Started
+
+Clone the repository:
 
 ```bash
-pnpm install
-pnpm dev
+git clone YOUR_GITHUB_REPOSITORY_URL
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
-## Project structure
-
-```text
-app/
-  app/page.tsx          # Dashboard route
-  settings/page.tsx     # Privacy settings route
-  page.tsx              # Landing page
-  globals.css           # Theme and shared styles
-components/
-  paisa-guard.tsx       # Shared UI components and page experiences
-lib/
-  ai.ts                 # Typed analysis stub (Firebase AI Logic TODO)
-  redact.ts             # PII redaction helpers
-```
-
-## Analysis integration
-
-Replace the deterministic implementation in `lib/ai.ts` with Firebase AI Logic when wiring the real model. Keep the `analyze(text, task)` response shape:
-
-```ts
-type AnalysisResult = {
-  result: string
-  source: 'on-device' | 'cloud'
-  redactions: string[]
-}
-```
-
-Before sending data to a cloud model, apply the redactor in `lib/redact.ts` and ensure the chosen processing source reflects the actual runtime behavior. The current source selection and privacy log are demo behavior, not a guarantee of on-device execution or data deletion.
-
-## Validation
+Navigate to the project directory:
 
 ```bash
-pnpm exec tsc --noEmit
+cd paisaguard
 ```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Configure your `.env.local` file with the required Firebase credentials.
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open http://localhost:3000 in your browser.
+
+*Note: These commands assume a standard Next.js project with npm scripts configured.*
+
+## ☁️ Deployment
+
+PaisaGuard is deployed using Vercel.
+
+To deploy your own instance:
+
+1. Import your GitHub repository into Vercel.
+2. Configure the required environment variables.
+3. Verify Firebase Authentication and App Check configuration.
+4. Deploy the application.
+
+## 🎯 Project Goal
+
+The goal of PaisaGuard is to make personal financial management more accessible, understandable, and privacy-conscious.
+
+Users should be able to understand their money without compromising their privacy.
+
+---
+
+**PaisaGuard – Your Money. Your Privacy.**
+
+Made with ❤️ for a more private financial future.
